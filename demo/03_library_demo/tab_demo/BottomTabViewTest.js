@@ -8,23 +8,23 @@ import { TabViewAnimated, TabBar } from 'react-native-tab-view';
  */
 
 export default class BottomTabViewTest extends Component {
-    static title = 'Bottom bar with indicator';
-    static appbarElevation = 4;
-
-    static propTypes = {
-        style: View.propTypes.style,
-    };
-
-    state = {
-        index: 0,
-        routes: [
-            { key: '1', title: 'First', icon: '../../imgs/ic_home.png' },
-            { key: '2', title: 'Second', icon: '../../../imgs/ic_yaomeirong.png' },
-            { key: '3', title: 'Third', icon: '../../../imgs/ic_shop.png' },
-        ],
-    };
-
-    _handleChangeTab = (index) => {
+	static title = 'Bottom bar width indicator';
+	static appbarElevation = 4;
+	
+	static propTypes = {
+		style: View.propTypes.style,
+	};
+	
+	state = {
+		index: 0,
+		routes: [
+			{ key: '1', title: 'First', icon: '../../imgs/ic_image.png' },
+            { key: '2', title: 'Second', icon: '../../imgs/ic_yaomeirong.png' },
+            { key: '3', title: 'Third', icon: '../../imgs/ic_shop.png' },
+		],
+	};
+	
+	_handleChangeTab = (index) => {
         this.setState({
             index,
         });
@@ -43,14 +43,8 @@ export default class BottomTabViewTest extends Component {
             </Animated.View>
         );
     };
-
-    _renderIcon = ({ route }: any) => {
-        return (
-            <Image source={route.icon} style={{height:24,width:24,}}/>
-        );
-    };
-
-    _renderBadge = ({ route }) => {
+	
+	_renderBadge = ({ route }) => {
         if (route.key === '2') {
             return (
                 <View style={BottomTabViewStyle.badge}>
@@ -60,8 +54,22 @@ export default class BottomTabViewTest extends Component {
         }
         return null;
     };
-
-    _renderFooter = (props) => {
+	
+	_renderIcon = ({ route }) => {
+		switch (route.key) {
+            case '1':
+                return <Image source={require('../../imgs/ic_me.png')} style={{width: 20,height: 20}}/>;
+            case '2':
+                return <Image source={require('../../imgs/ic_menu_more.png')} style={{width: 20,height: 20}}/>;
+            case '3':
+                return <Image source={require('../../imgs/ic_news.png')} style={{width: 20,height: 20}}/>;
+            default:
+                return null;
+       }
+        
+    };
+	
+	_renderFooter = (props) => {
         return (
             <TabBar
                 {...props}
@@ -73,7 +81,7 @@ export default class BottomTabViewTest extends Component {
             />
         );
     };
-
+    
     _renderScene = ({ route }) => {
         switch (route.key) {
             case '1':
@@ -89,9 +97,9 @@ export default class BottomTabViewTest extends Component {
                 return null;
         }
     };
-
-    render() {
-        return (
+	
+	render() {
+		return (
             <TabViewAnimated
                 style={[ BottomTabViewStyle.container, this.props.style ]}
                 navigationState={this.state}
@@ -100,7 +108,7 @@ export default class BottomTabViewTest extends Component {
                 onRequestChangeTab={this._handleChangeTab}
             />
         );
-    }
+	}
 }
 
 const BottomTabViewStyle = StyleSheet.create({
@@ -108,7 +116,7 @@ const BottomTabViewStyle = StyleSheet.create({
         flex: 1,
     },
     tabbar: {
-        backgroundColor: '#222',
+        //backgroundColor: '#222',
     },
     tab: {
         padding: 0,
