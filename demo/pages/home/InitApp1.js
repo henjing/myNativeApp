@@ -5,7 +5,7 @@ import {
     Platform,
 } from "react-native";
 import MainPage from "./MainPage";
-import ToastUtil from "../utils/ToastUtil";
+import ToastUtil from "../../utils/ToastUtil";
 
 //标记是第几次按下返回键
 let isFirstQuit = 0;
