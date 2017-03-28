@@ -7,14 +7,18 @@
     "test": "jest"
   },
   "dependencies": {
+    "native-base": "^2.0.13",
     "react": "~15.4.0",
     "react-native": "0.41.2",
     "react-native-banner": "^0.1.0",
+    "react-native-parallax-scroll-view": "^0.19.0",
     "react-native-root-toast": "^1.0.3",
     "react-native-storage": "^0.1.5",
     "react-native-swiper": "^1.5.4",
     "react-native-tab-navigator": "^0.3.2",
     "react-native-tab-view": "0.0.57",
+    "react-native-vector-icons": "^4.0.0",
+    "react-native-video": "^1.0.0",
     "react-native-xtabbar": "^0.2.1",
     "redux": "^3.6.0",
     "redux-thunk": "^2.1.0"
@@ -23,9 +27,7 @@
     "babel-jest": "19.0.0",
     "babel-preset-react-native": "1.9.1",
     "jest": "19.0.2",
-    "react-test-renderer": "~15.4.0",
-    "react-native-swiper": "^1.5.4",
-    "react-native-tab-navigator": "^0.3.2"
+    "react-test-renderer": "~15.4.0"
   },
   "jest": {
     "preset": "react-native"
