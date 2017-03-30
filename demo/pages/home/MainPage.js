@@ -2,6 +2,10 @@ import React, {Component} from "react";
 import {StyleSheet, Image, Text} from "react-native";
 import TabNavigator from "react-native-tab-navigator";
 
+import FollowPage from '../follow/FollowPage';
+import ExplorePage from '../explore/ExplorePage';
+import ProfilePage from '../profile/ProfilePage';
+
 const SELECTED_TAG = 'selected';
 const SELECTED_TITLE = '精选';
 const SELECTED_NORMAL = require('../../imgs/ic_tab_strip_icon_feed.png');
@@ -41,44 +45,44 @@ export default class MainPage extends Component {
 					title='精选'
 					titleStyle={styles.tab_title}
 					selectedTitleStyle={styles.tab_title_selected}
-					renderIcon={() => <Image source={SELECTED_NORMAL}/>}
-					renderSelectedIcon={() => <Image source={SELECTED_FOCUS}/>}
+					renderIcon={() => <Image source={SELECTED_NORMAL} style={styles.tab_icon} />}
+					renderSelectedIcon={() => <Image source={SELECTED_FOCUS} style={styles.tab_icon} />}
 					onPress={() => this.setState({selectedTab: "selected"})}
 				>
-					精选
+					<Text>精选</Text>
 				</TabNavigator.Item>
 				<TabNavigator.Item
 					selected={this.state.selectedTab === "explore"}
 					title='发现'
 					titleStyle={styles.tab_title}
 					selectedTitleStyle={styles.tab_title_selected}
-					renderIcon={() => <Image source={SELECTED_NORMAL}/>}
-					renderSelectedIcon={() => <Image source={SELECTED_FOCUS}/>}
+					renderIcon={() => <Image source={EXPLORE_NORMAL} style={styles.tab_icon} />}
+					renderSelectedIcon={() => <Image source={EXPLORE_FOCUS} style={styles.tab_icon} />}
 					onPress={() => this.setState({selectedTab: "explore"})}
 				>
-					发现
+					<ExplorePage />
 				</TabNavigator.Item>
 				<TabNavigator.Item
 					selected={this.state.selectedTab === "follow"}
 					title='关注'
 					titleStyle={styles.tab_title}
 					selectedTitleStyle={styles.tab_title_selected}
-					renderIcon={() => <Image source={SELECTED_NORMAL}/>}
-					renderSelectedIcon={() => <Image source={SELECTED_FOCUS}/>}
+					renderIcon={() => <Image source={FOLLOW_NORMAL} style={styles.tab_icon}/>}
+					renderSelectedIcon={() => <Image source={FOLLOW_FOCUS} style={styles.tab_icon}/>}
 					onPress={() => this.setState({selectedTab: "follow"})}
 				>
-					关注
+					<FollowPage />
 				</TabNavigator.Item>
 				<TabNavigator.Item
 					selected={this.state.selectedTab === "profile"}
 					title='我的'
 					titleStyle={styles.tab_title}
 					selectedTitleStyle={styles.tab_title_selected}
-					renderIcon={() => <Image source={SELECTED_NORMAL}/>}
-					renderSelectedIcon={() => <Image source={SELECTED_FOCUS}/>}
+					renderIcon={() => <Image source={PROFILE_NORMAL} style={styles.tab_icon}/>}
+					renderSelectedIcon={() => <Image source={PROFILE_FOCUS} style={styles.tab_icon}/>}
 					onPress={() => this.setState({selectedTab: "profile"})}
 				>
-					我的
+					<ProfilePage {...this.props} />
 				</TabNavigator.Item>
 			</TabNavigator>
 		);
@@ -91,8 +95,8 @@ const styles = StyleSheet.create(
             height: 42,
         },
         tab_icon: {
-            width: 35,
-            height: 35,
+            width: 25,
+            height: 25,
             resizeMode: 'contain',
         },
         tab_title: {
