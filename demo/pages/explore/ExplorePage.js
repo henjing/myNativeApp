@@ -43,7 +43,7 @@ export default class FollowPage extends Component {
 	
 	render() {
 		var images = this.banners.map(function(item, index) {
-			return <Image source={{uri: item.image}} style={styles.image_width_height}/>
+			return <Image source={{uri: item.image}} key={index} style={styles.image_width_height}/>
 		});
 		return (
 			<View style={styles.container}>

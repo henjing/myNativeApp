@@ -5,6 +5,7 @@ import TabNavigator from "react-native-tab-navigator";
 import FollowPage from '../follow/FollowPage';
 import ExplorePage from '../explore/ExplorePage';
 import ProfilePage from '../profile/ProfilePage';
+import SelectedPage from '../selected/SelectedPage';
 
 const SELECTED_TAG = 'selected';
 const SELECTED_TITLE = '精选';
@@ -49,7 +50,7 @@ export default class MainPage extends Component {
 					renderSelectedIcon={() => <Image source={SELECTED_FOCUS} style={styles.tab_icon} />}
 					onPress={() => this.setState({selectedTab: "selected"})}
 				>
-					<Text>精选</Text>
+					<SelectedPage {...this.props} />
 				</TabNavigator.Item>
 				<TabNavigator.Item
 					selected={this.state.selectedTab === "explore"}
@@ -92,20 +93,20 @@ export default class MainPage extends Component {
 const styles = StyleSheet.create(
     {
         tab_container: {
-            height: 42,
+            height: 50,
         },
         tab_icon: {
-            width: 25,
-            height: 25,
+            width: 30,
+            height: 30,
             resizeMode: 'contain',
         },
         tab_title: {
             color: "#929292",
-            fontSize: 8,
+            fontSize: 10,
         },
         tab_title_selected: {
             color: "#333333",
-            fontSize: 8,
+            fontSize: 10,
         }
     }
 )
